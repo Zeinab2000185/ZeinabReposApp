@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-df = pd.read_csv('C:\\Users\\user\\Desktop\\Healthcare Course\\Individual Project\\Streamlit plots\\heart stroke data.csv')
+df = pd.read_csv('heart stroke data.csv')
 
 # Drop rows with missing values
 df = df.dropna()
