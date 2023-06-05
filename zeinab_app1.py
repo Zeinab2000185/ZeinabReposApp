@@ -1,6 +1,7 @@
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+import plotly.graph_objects as go
 
 df = pd.read_csv('heart stroke data.csv')
 
@@ -44,6 +45,13 @@ st.plotly_chart(fig_marital_status)
 st.subheader("Work Type vs. Stroke")
 fig_work_type = px.bar(df, x='work_type', color='stroke', barmode='group', color_discrete_sequence=[color_female, color_male])
 fig_work_type.update_layout(xaxis={'categoryorder':'total descending'})
+st.plotly_chart(fig_work_type)
+
+st.subheader("Work Type vs. Stroke")
+fig_work_type = px.line(df, x='work_type', y='stroke', color='stroke',
+                        color_discrete_sequence=[color_female, color_male])
+fig_work_type.update_layout(xaxis={'categoryorder': 'total descending'})
+fig_work_type.update_traces(mode='markers+lines')
 st.plotly_chart(fig_work_type)
 
 # Bar plot for stroke vs. residence type
